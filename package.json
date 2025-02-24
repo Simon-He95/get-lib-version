@@ -2,7 +2,7 @@
   "name": "get-lib-version",
   "type": "module",
   "version": "0.0.1",
-  "description": "",
+  "description": "A utility to get the exact version of a specific package in your project.",
   "author": "Simon He",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Simon-He95",
@@ -11,8 +11,19 @@
     "type": "git",
     "url": "git+https://github.com/Simon-He95/get-lib-version.git"
   },
-  "bugs": "https://github.com/Simon-He95/get-lib-version/issues",
-  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Simon-He95/get-lib-version/issues",
+    "email": "support@example.com"
+  },
+  "keywords": [
+    "version",
+    "package",
+    "npm",
+    "pnpm",
+    "yarn",
+    "bun",
+    "dependency"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
