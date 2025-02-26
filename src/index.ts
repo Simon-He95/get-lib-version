@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { isArray } from 'lazy-js-utils'
 import { jsShell } from 'lazy-js-utils/node'
 
@@ -7,11 +8,12 @@ const commands = {
   yarn: (pkg: string) => `yarn list ${pkg} --depth=0 --json`,
   bun: (pkg: string) => `bun list ${pkg} --depth=0 --json`,
 }
-export function getLibVersion(pkg: string): Promise<string | undefined> {
+export function getLibVersion(pkg: string, cwd = process.cwd()): Promise<string | undefined> {
   // 用 npm、pnpm、yarn、bun 同时获取包的版本号
   return Promise.any(Object.values(commands).map(async (command) => {
     const { result, status } = await jsShell(command(pkg), {
       errorExit: false,
+      cwd,
     })
     if (status === 0) {
       const json = JSON.parse(result)
